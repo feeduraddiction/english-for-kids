@@ -1,0 +1,22 @@
+.card-front-side {
+  position: absolute;
+  outline: none;
+  background: none;
+  border: none;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+
+  button {
+    font-size: 30px;
+    border: none;
+    transition: 0.2s ease;
+    background-color: transparent;
+    color: #d0d9d7;
+  }
+
+  button:hover {
+    color: #fa897b;
+  }
+}

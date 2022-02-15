@@ -1,0 +1,37 @@
+@import 'src/Styles/mediaSizes';
+
+.card {
+  background-color: transparent;
+  width: calc(100% / 4 - 25px);
+  height: 250px;
+  perspective: 1000px;
+  transition: 0.4s ease-in-out;
+  transform-origin: center;
+  margin-top: 90px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+@media (max-width: $breakpoint-three) {
+  .card {
+    width: calc(100% / 3 - 25px);
+  }
+}
+
+@media (max-width: $breakpoint-two) {
+  .card {
+    width: calc(100% / 2 - 25px);
+  }
+}
+
+@media (max-width: $breakpoint-one) {
+  .card {
+    width: calc(100% / 1 - 25px);
+  }
+}
+
+
+
+
