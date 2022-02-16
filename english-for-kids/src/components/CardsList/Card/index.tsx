@@ -1,7 +1,6 @@
-import React from 'react';
+import CardInner from "./CardInner";
 
 import './index.scss';
-import CardInner from "./CardInner";
 
 const Card = (props: any) => {
     return <div className="card">
@@ -10,6 +9,7 @@ const Card = (props: any) => {
                    word={props.word}
                    translation={props.translation}
                    audioSrc={props.audioSrc}
+                   onGetChosenCard={props.onGetChosenCard}
         />
     </div>
 

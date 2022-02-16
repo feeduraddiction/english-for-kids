@@ -1,9 +1,8 @@
 import './index.scss'
 import { useSelector } from 'react-redux';
-import {selectSwitchMode} from "../../../../../store/store";
+import { selectSwitchMode } from "@store/Slices/SwitchModeSlice";
 
 const FrontSide = (props: any) => {
-
     const isPlayingMode = useSelector(selectSwitchMode);
 
     return <div className="card-front-side">

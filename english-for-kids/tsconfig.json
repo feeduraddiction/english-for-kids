@@ -21,7 +21,8 @@
     "paths" : {
       "@components/*" : ["./src/components","./src/components/*" ],
       "@UI/*" : ["./src/components/UI/*"],
-      "@assets/*" : ["./src/assets", "./src/assets/*"]
+      "@assets/*" : ["./src/assets", "./src/assets/*"],
+      "@store/*" : ["./src/store/*"]
     },
     "noEmit": true,
     "jsx": "react-jsx"

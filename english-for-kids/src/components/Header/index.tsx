@@ -1,7 +1,7 @@
 import {NavLink} from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 
-import { switchModeAction } from '../../store/store';
+import { switchModeAction } from '@store/Slices/SwitchModeSlice';
 
 import './index.css'
 

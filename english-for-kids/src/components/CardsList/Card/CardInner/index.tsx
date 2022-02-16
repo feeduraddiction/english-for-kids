@@ -1,16 +1,22 @@
 import React, {useState} from 'react';
+import { useSelector } from 'react-redux';
 
 import FrontSide from "./FrontSide";
 import BackSide from "./BackSide";
 
+import { selectSwitchMode } from "@store/Slices/SwitchModeSlice";
+
+
 import './index.scss';
 
 const CardInner = (props: any) => {
+    const isPlayingMode = useSelector(selectSwitchMode);
+
+
     const [isRotated, setIsRotated] = useState(false);
 
     const flipHandler = () => {
         setIsRotated(true);
-
     }
 
     const unflipHandler = () => {
@@ -18,7 +24,12 @@ const CardInner = (props: any) => {
     }
 
     const playAudioHandler = () => {
-        new Audio(require(`@assets/${props.audioSrc}`)).play();
+         if(!isPlayingMode){
+             new Audio(require(`@assets/${props.audioSrc}`)).play();
+         }
+         else {
+             props.onGetChosenCard(props.audioSrc);
+         }
     }
 
     return (

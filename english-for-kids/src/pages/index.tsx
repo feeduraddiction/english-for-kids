@@ -1,7 +1,10 @@
 import { Route } from "react-router-dom";
+
 import CardsList from "@components/CardsList";
+import PlayModeNav from "@components/PlayModeNav";
 
 import './index.scss';
+
 
 export interface categoriesPropTypes {
     categories: {
@@ -20,6 +23,7 @@ const Pages = ({categories}: categoriesPropTypes) => {
         {categories.map(category => (
             <Route path={`/${category.name.toLocaleLowerCase().replace(/\s+/g, '')}`} exact>
                 {category.name}
+                <PlayModeNav/>
                 <CardsList info={category.info} />
             </Route>
         ))}

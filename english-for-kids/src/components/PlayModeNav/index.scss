@@ -1,0 +1,12 @@
+.playmode-nav {
+  height: 120px;
+  padding: 0 50px;
+  position: sticky;
+  top: 0px;
+  background-color: rgba(255, 255, 255, .15);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}

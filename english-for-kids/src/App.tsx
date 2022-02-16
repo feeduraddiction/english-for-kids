@@ -1,12 +1,10 @@
-import {Switch} from 'react-router-dom';
-
-import './App.css';
 import Header from "./components/Header";
 import Categories from "./components/Categories";
-
-import categories from '@assets/Categories';
 import Pages from "./pages";
 
+import categories from '@assets/Categories';
+
+import './App.css';
 
 function App() {
     return (
