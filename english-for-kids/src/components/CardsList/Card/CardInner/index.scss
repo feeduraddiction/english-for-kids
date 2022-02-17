@@ -19,5 +19,10 @@
 
 .rotated {
   transform: rotateY(180deg);
+}
 
+.chosen {
+  img {
+    filter: blur(2px);
+  }
 }

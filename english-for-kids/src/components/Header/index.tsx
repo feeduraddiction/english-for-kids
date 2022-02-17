@@ -1,7 +1,7 @@
 import {NavLink} from 'react-router-dom'
-import { useDispatch } from 'react-redux';
+import {useDispatch} from 'react-redux';
 
-import { switchModeAction } from '@store/Slices/SwitchModeSlice';
+import {switchModeAction} from '@store/Slices/SwitchModeSlice';
 
 import './index.css'
 
@@ -25,7 +25,7 @@ const Header = ({categories}: categoriesPropTypes) => {
             <nav>
                 <ul>
                     {categories.map((category) => (
-                        <li>
+                        <li key={category.name}>
                             <NavLink to={`/${category.name.toLocaleLowerCase()}`}>{category.name}</NavLink>
                         </li>
                     ))}

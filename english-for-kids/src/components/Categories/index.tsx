@@ -15,7 +15,7 @@ const Categories = ({categories}: categoriesPropTypes) => {
         <Route path='/' exact>
             <div className="categories">
                 {categories.map((category) => (
-                    <Link to={`/${category.name.toLowerCase().replace(/\s+/g, '')}`}>
+                    <Link key={category.name} to={`/${category.name.toLowerCase().replace(/\s+/g, '')}`}>
                         <CategoryCard name={category.name} image={category.image}/>
                     </Link>
                 ))}

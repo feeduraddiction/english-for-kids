@@ -1,14 +1,19 @@
-import Card from "@components/CardsList/Card";
-
-import './index.scss';
 import {useSelector} from "react-redux";
-import {selectStartGame} from "@store/Slices/StartGameSlice";
 import {useEffect, useState} from "react";
-
 import {useDispatch} from "react-redux";
 
-import {resultsImageAction} from "@store/Slices/resultsSlice";
+import Card from "@components/CardsList/Card";
 
+import {addResultsAction} from "@store/Slices/resultsSlice";
+import {selectResults} from "@store/Slices/resultsSlice";
+import {selectStartGame, selectRepeatCard, startGameAction} from "@store/Slices/StartGameSlice";
+import {endgameAction} from "@store/Slices/endgameSlice";
+import {selectEndgame} from "@store/Slices/endgameSlice";
+import {switchModeAction} from "@store/Slices/SwitchModeSlice";
+import {generalResultsAction} from "@store/Slices/generalResults";
+import './index.scss';
+
+import playAudio from "@assets/functions/playAudio";
 
 export interface cardPropTypes {
     info: {
@@ -22,42 +27,65 @@ export interface cardPropTypes {
 
 const CardsList = ({info}: cardPropTypes) => {
     const dispatch = useDispatch();
-
     const isGameStarted = useSelector(selectStartGame);
-    const audioToPlay = info.map((category) => category.audioSrc);
+    const repeatCard = useSelector(selectRepeatCard);
+    const isGameEnded = useSelector(selectEndgame);
+    const currentResults = useSelector(selectResults);
+
+    const audioToPlay = info.map((category) => category.audioSrc)
+        .sort((a, b) => 0.5 - Math.random()); //a new random array
 
     const [chosenCard, setChosenCard] = useState('');
     const [audio, setAudio] = useState(audioToPlay);
 
-
     const getChosenCard = (card: string) => {
         setChosenCard(card);
+        if (audio.length === 1) {
+            dispatch(addResultsAction({
+                image: 'img/right_answer.png',
+                item: card,
+                answer: 'correct',
+            }));
+            setAudio(audioToPlay);
+            dispatch(startGameAction(false));
+            dispatch(endgameAction(true));
+            dispatch(switchModeAction());
+            dispatch(generalResultsAction(currentResults));
+        }
     }
 
     useEffect(() => {
-        if (isGameStarted) {
+        if (isGameStarted || repeatCard > 0) {
             setTimeout(() => playAudio(audio[0]), 500);
         }
-    }, [isGameStarted, audio])
+
+    }, [isGameStarted, repeatCard, audio]); //play audio if game was started or repeat button pushed
 
 
     useEffect(() => {
         if (!!chosenCard) {
             if (chosenCard === audio[0]) {
+                dispatch(addResultsAction({
+                        image: 'img/right_answer.png',
+                        item: chosenCard,
+                        answer: 'correct',
+                    }
+                ));
                 setAudio(audio.slice(1));
                 setChosenCard('');
-                dispatch(resultsImageAction('img/right_answer.png'));
             } else {
-                playAudio(audio[0]);
+                playAudio('sounds/failure.mp3');
                 setChosenCard('');
-                dispatch(resultsImageAction('img/false_answer.png'));
+                dispatch(addResultsAction({
+                        image: 'img/false_answer.png',
+                        item: chosenCard,
+                        answer: 'incorrect',
+                    }
+                ));
             }
         }
-    }, [chosenCard])
 
-    function playAudio(src: string) {
-        new Audio(require(`@assets/${src}`)).play();
-    }
+    }, [chosenCard, isGameEnded]); //set new array of sounds after right answer or play failure.mp3
 
     return <div className="cards-list">
         {
@@ -68,12 +96,11 @@ const CardsList = ({info}: cardPropTypes) => {
                     translation={card.translation}
                     audioSrc={card.audioSrc}
                     onGetChosenCard={getChosenCard}
+                    key={card.word}
                 />
             ))
         }
     </div>
-
-
 }
 
 export default CardsList;

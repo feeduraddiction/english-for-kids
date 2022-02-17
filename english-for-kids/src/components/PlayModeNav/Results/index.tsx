@@ -8,7 +8,11 @@ const Results = () => {
 
     return <div className="results">
         {results.map((result) => (
-            <img src={require(`@assets/${result.image}`)} alt="result"/>
+            <img
+                key={Math.random().toString()}
+                src={require(`@assets/${result.image}`)}
+                alt="result"
+            />
         ))}
     </div>
 }
