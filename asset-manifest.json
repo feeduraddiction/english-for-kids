@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/english-for-kids/static/css/main.01eb6aa1.css",
-    "main.js": "/english-for-kids/static/js/main.11f1a2b6.js",
-    "static/media/arrow_up.svg": "/english-for-kids/static/media/arrow_up.7fae8768044441153464.svg",
-    "static/media/arrow_down.svg": "/english-for-kids/static/media/arrow_down.18d4f70270e939dbd54e.svg",
+    "main.js": "/english-for-kids/static/js/main.e8bde65a.js",
+    "static/media/arrow_up.svg": "/english-for-kids/static/media/arrow_up.54f41ed97d0fab423caa.svg",
+    "static/media/arrow_down.svg": "/english-for-kids/static/media/arrow_down.4e7f1442c48ca2a9fda0.svg",
     "static/media/won.mp3": "/english-for-kids/static/media/won.6dc2f4dee50f94326ae3.mp3",
     "static/media/violin.png": "/english-for-kids/static/media/violin.b76cd84e1b8fbb4f8a18.png",
     "static/media/shovel.png": "/english-for-kids/static/media/shovel.b729e18559445b93ca7e.png",
@@ -104,17 +104,17 @@
     "static/media/music.png": "/english-for-kids/static/media/music.bfd133e3e2ffab595604.png",
     "static/media/daughter.png": "/english-for-kids/static/media/daughter.73bd6e06ac7dcee54dd9.png",
     "static/media/rs_school_js.svg": "/english-for-kids/static/media/rs_school_js.ad178c0df28bc133be34.svg",
-    "static/media/flute.svg": "/english-for-kids/static/media/flute.3eb412212d34a8b55b5d.svg",
-    "static/media/refresh.svg": "/english-for-kids/static/media/refresh.45590ee2fb51885b297b.svg",
+    "static/media/flute.svg": "/english-for-kids/static/media/flute.280884df956411432792.svg",
+    "static/media/refresh.svg": "/english-for-kids/static/media/refresh.a9ce187b40e3b554963e.svg",
     "static/media/rotate.svg": "/english-for-kids/static/media/rotate.8564a665cd6d24805ec6.svg",
     "static/media/github_icon.svg": "/english-for-kids/static/media/github_icon.04be58c17b3d5e974442.svg",
     "index.html": "/english-for-kids/index.html",
-    "static/media/arrow_repeat.svg": "/english-for-kids/static/media/arrow_repeat.8c7be08cab8307d751b5.svg",
+    "static/media/arrow_repeat.svg": "/english-for-kids/static/media/arrow_repeat.222136e7f654f7a22080.svg",
     "main.01eb6aa1.css.map": "/english-for-kids/static/css/main.01eb6aa1.css.map",
-    "main.11f1a2b6.js.map": "/english-for-kids/static/js/main.11f1a2b6.js.map"
+    "main.e8bde65a.js.map": "/english-for-kids/static/js/main.e8bde65a.js.map"
   },
   "entrypoints": [
     "static/css/main.01eb6aa1.css",
-    "static/js/main.11f1a2b6.js"
+    "static/js/main.e8bde65a.js"
   ]
 }
