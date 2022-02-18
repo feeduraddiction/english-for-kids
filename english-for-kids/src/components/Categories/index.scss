@@ -1,3 +1,5 @@
+@import '../../Styles/_mediaSizes.scss';
+
 .categories {
   max-width: 1400px;
   margin: 0 auto;
@@ -6,12 +8,36 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 50px;
-  height: 250px;
 
   a {
     background-color: transparent;
     width: calc(100% / 4 - 25px);
     height: 250px;
-    margin-top: 90px;
+    margin-bottom: 90px;
+  }
+}
+
+
+@media (max-width: $breakpoint-three) {
+  .categories {
+    a{
+      width: calc(100% / 3 - 25px);
+    }
+  }
+}
+
+@media (max-width: $breakpoint-two) {
+  .categories {
+    a{
+      width: calc(100% / 2 - 25px);
+    }
+  }
+}
+
+@media (max-width: $breakpoint-one) {
+  .categories {
+    a{
+      width: calc(100% / 1 - 25px);
+    }
   }
 }

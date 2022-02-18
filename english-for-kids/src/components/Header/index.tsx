@@ -1,9 +1,11 @@
-import {NavLink} from 'react-router-dom'
-import {useDispatch} from 'react-redux';
+import React from "react";
+import {useDispatch, useSelector} from 'react-redux';
+import {selectSwitchMode, switchModeAction} from '@store/Slices/SwitchModeSlice';
 
-import {switchModeAction} from '@store/Slices/SwitchModeSlice';
+import BurgerMenu from "@components/Header/BurgerMenu";
 
-import './index.css'
+import './index.scss'
+import Button from "@UI/Button";
 
 export interface categoriesPropTypes {
     categories: {
@@ -13,29 +15,21 @@ export interface categoriesPropTypes {
 }
 
 
+
 const Header = ({categories}: categoriesPropTypes) => {
     const dispatch = useDispatch();
+    const isPlayingMode = useSelector(selectSwitchMode);
 
     const switchModeHandler = () => {
         dispatch(switchModeAction());
     }
 
     return (
-        <header>
-            <nav>
-                <ul>
-                    {categories.map((category) => (
-                        <li key={category.name}>
-                            <NavLink to={`/${category.name.toLocaleLowerCase()}`}>{category.name}</NavLink>
-                        </li>
-                    ))}
-                    <li>
-                        <NavLink to='/'>Home</NavLink>
-                    </li>
-                </ul>
-            </nav>
-            <button onClick={switchModeHandler}>PlayMode</button>
-        </header>)
+        <header className="header">
+            <BurgerMenu categories={categories}/>
+            <Button onClick={switchModeHandler}>{isPlayingMode? 'Train':'Play'}</Button>
+        </header>
+    )
 }
 
 export default Header;

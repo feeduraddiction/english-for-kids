@@ -5,6 +5,7 @@ import { startGameAction, repeatCardAction, selectStartGame } from '@store/Slice
 
 
 import './index.scss';
+import Button from "@UI/Button";
 
 const PlayModeNav = () => {
     const dispatch = useDispatch();
@@ -19,7 +20,7 @@ const PlayModeNav = () => {
 
     return <div className="playmode-nav">
         <Results/>
-        <button onClick={startGameHandler}>{!isGameStarted ? 'Start' : 'Replay'}</button>
+        <Button onClick={startGameHandler}>{!isGameStarted ? 'Start' : 'Replay'}</Button>
     </div>
 }
 

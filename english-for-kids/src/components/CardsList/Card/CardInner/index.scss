@@ -1,7 +1,9 @@
+@import 'src/Styles/stylesNeomorphism';
+
 .card-inner {
   border-radius: 25px;
-  box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
-  background-color: #ecf0f3;
+  box-shadow: $cardBoxShadow;
+  background-color: $mainBgColor;
   padding-top: 15px;
   position: relative;
   width: 100%;
@@ -11,10 +13,16 @@
   transform-style: preserve-3d;
 
   img {
-    width: 50%;
-    //width: 15vw;
+    transition: 0.3s ease;
+    height: 50%;
   }
 
+}
+
+.playingmode{
+  img {
+    height: 85%;
+  }
 }
 
 .rotated {

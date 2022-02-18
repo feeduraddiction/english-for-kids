@@ -1,0 +1,27 @@
+@import '../../../Styles/stylesNeomorphism';
+
+.button {
+  background: $mainBgColor;
+  outline: none;
+  border-color: transparent;
+  box-shadow: $boxShadowOutside;
+  border-radius: 20px;
+  padding: 16px 32px;
+  cursor: pointer;
+  color: $textColor;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 36px;
+  transition: 0.1s ease;
+}
+
+.button:focus{
+  outline:none;
+}
+
+.button:hover {
+  box-shadow: $boxShadowInside;
+  color: $hoverColor;
+  //border: 3px solid $mainBgColor;
+}
+

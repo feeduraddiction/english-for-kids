@@ -30,6 +30,7 @@ const CardInner = (props: any) => {
         'card-inner': true,
         'rotated' : isRotated,
         'chosen' : currentResults.includes(props.audioSrc),
+        'playingmode': isPlayingMode,
     });
 
     const playAudioHandler = () => {

@@ -23,8 +23,6 @@ export interface categoriesPropTypes {
 
 const Pages = ({categories}: categoriesPropTypes) => {
     const isPlayingMode = useSelector(selectSwitchMode);
-
-
     return <section className="category-section">
         {categories.map(category => (
             <Route
@@ -33,9 +31,9 @@ const Pages = ({categories}: categoriesPropTypes) => {
                     .replace(/\s+/g, '')}`}
                 key={category.name}
                 exact>
-                {category.name}
-                {isPlayingMode && <PlayModeNav/>}
+                <h1>{category.name}</h1>
                 <CardsList info={category.info}/>
+                {isPlayingMode && <PlayModeNav/>}
             </Route>
         ))}
     </section>

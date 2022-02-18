@@ -26,7 +26,7 @@ const EndGame = () => {
             }`)}
             alt="result"
         />
-        <h1>{correctQuantity ? `failed answers: ${correctQuantity}` : 'all ok'}</h1>
+        <h1>{correctQuantity ? ` Ooops! You failed ${correctQuantity} word(s) :( ` : 'Good Job!'}</h1>
     </div>
 }
 

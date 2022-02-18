@@ -10,7 +10,7 @@ import {selectStartGame, selectRepeatCard, startGameAction} from "@store/Slices/
 import {endgameAction} from "@store/Slices/endgameSlice";
 import {selectEndgame} from "@store/Slices/endgameSlice";
 import {switchModeAction} from "@store/Slices/SwitchModeSlice";
-import {generalResultsAction} from "@store/Slices/generalResults";
+import {generalResultsAction} from "@store/Slices/generalResultsSlice";
 import './index.scss';
 
 import playAudio from "@assets/functions/playAudio";
@@ -63,7 +63,7 @@ const CardsList = ({info}: cardPropTypes) => {
 
 
     useEffect(() => {
-        if (!!chosenCard) {
+        if (!!chosenCard && isGameStarted) {
             if (chosenCard === audio[0]) {
                 dispatch(addResultsAction({
                         image: 'img/right_answer.png',
