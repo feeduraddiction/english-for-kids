@@ -26,7 +26,7 @@ const Pages = ({categories}: categoriesPropTypes) => {
     return <section className="category-section">
         {categories.map(category => (
             <Route
-                path={`/${category.name
+                path={`/english-for-kids/${category.name
                     .toLocaleLowerCase()
                     .replace(/\s+/g, '')}`}
                 key={category.name}

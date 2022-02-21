@@ -35,7 +35,7 @@ function App() {
             <Header categories={categories}/>
             {isGameEnded ?
                 <>
-                    <Redirect to='/'/>
+                    <Redirect to='/english-for-kids'/>
                     <EndGame/>
                 </>
                 :

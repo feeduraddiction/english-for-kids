@@ -21,7 +21,7 @@ const Navigation = ({categories}: categoriesPropTypes) => {
             <Button onClick={closeBurgerHandler}>&#9587;</Button>
             <ul>
                 <li>
-                    <NavLink to='/' exact={true} onClick={closeBurgerHandler}>
+                    <NavLink to='/english-for-kids' exact={true} onClick={closeBurgerHandler}>
                         <MenuCategory
                             name={'Home'}
                             image={'img/home.png'}
@@ -32,7 +32,7 @@ const Navigation = ({categories}: categoriesPropTypes) => {
                     <li key={category.name}>
                         <NavLink
                             onClick={closeBurgerHandler}
-                            to={`/${category.name
+                            to={`/english-for-kids/${category.name
                                 .toLocaleLowerCase()
                                 .replace(/\s+/g, '')}`}
                         >
