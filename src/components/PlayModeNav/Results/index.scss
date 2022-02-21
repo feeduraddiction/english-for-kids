@@ -1,5 +1,29 @@
+@import 'src/Styles/mediaSizes';
+
 .results {
-  img{
+  img {
     width: 50px;
   }
 }
+
+.hidden-image {
+  display: none;
+}
+
+@media(max-width: $breakpoint-two) {
+  .results {
+    img {
+      width: 35px;
+    }
+  }
+}
+
+@media(max-width: $breakpoint-one) {
+  .results {
+    img {
+      width: 25px;
+    }
+  }
+}
+
+

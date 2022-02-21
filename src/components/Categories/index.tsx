@@ -15,7 +15,10 @@ const Categories = ({categories}: categoriesPropTypes) => {
         <Route path='/english-for-kids' exact>
             <div className="categories">
                 {categories.map((category) => (
-                    <Link key={category.name} to={`/english-for-kids/${category.name.toLowerCase().replace(/\s+/g, '')}`}>
+                    <Link key={category.name}
+                          to={`/english-for-kids/${category.name
+                              .toLowerCase()
+                              .replace(/\s+/g, '')}`}>
                         <CategoryCard name={category.name} image={category.image}/>
                     </Link>
                 ))}
