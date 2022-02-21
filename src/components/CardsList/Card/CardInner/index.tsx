@@ -1,15 +1,16 @@
 import React, {useState} from 'react';
 import {useSelector} from 'react-redux';
+import classNames from "classnames";
 
 import FrontSide from "./FrontSide";
 import BackSide from "./BackSide";
 
 import {selectSwitchMode} from "@store/Slices/SwitchModeSlice";
+import {selectResults} from "@store/Slices/resultsSlice";
 
+import { playAudio } from "@assets/functions";
 
 import './index.scss';
-import {selectResults} from "@store/Slices/resultsSlice";
-import classNames from "classnames";
 
 const CardInner = (props: any) => {
     const isPlayingMode = useSelector(selectSwitchMode);
@@ -35,7 +36,8 @@ const CardInner = (props: any) => {
 
     const playAudioHandler = () => {
         if (!isPlayingMode) {
-            new Audio(require(`@assets/${props.audioSrc}`)).play();
+            playAudio(props.audioSrc);
+            // new Audio(require(`@assets/${props.audioSrc}`)).play();
         } else {
             props.onGetChosenCard(props.audioSrc);
         }

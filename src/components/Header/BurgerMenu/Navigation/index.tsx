@@ -6,6 +6,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {activateMenuAction, selectMenuActive} from "@store/Slices/activateMenuSlice";
 import Button from "@UI/Button";
 import MenuCategory from "@components/Header/BurgerMenu/Navigation/MenuCategory";
+import {pathToCategory} from "@assets/functions";
 
 const Navigation = ({categories}: categoriesPropTypes) => {
     const dispatch = useDispatch();
@@ -32,9 +33,7 @@ const Navigation = ({categories}: categoriesPropTypes) => {
                     <li key={category.name}>
                         <NavLink
                             onClick={closeBurgerHandler}
-                            to={`/english-for-kids/${category.name
-                                .toLocaleLowerCase()
-                                .replace(/\s+/g, '')}`}
+                            to={pathToCategory(category)}
                         >
                             <MenuCategory
                                 name={category.name}

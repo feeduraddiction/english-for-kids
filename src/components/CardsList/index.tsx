@@ -13,7 +13,7 @@ import {switchModeAction} from "@store/Slices/SwitchModeSlice";
 import {generalResultsAction} from "@store/Slices/generalResultsSlice";
 import './index.scss';
 
-import playAudio from "@assets/functions/playAudio";
+import {playAudio} from "@assets/functions";
 
 export interface cardPropTypes {
     info: {
