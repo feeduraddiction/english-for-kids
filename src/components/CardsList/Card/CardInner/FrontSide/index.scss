@@ -1,3 +1,5 @@
+@import 'src/Styles/stylesNeomorphism';
+
 .card-front-side {
   position: absolute;
   outline: none;
@@ -10,14 +12,15 @@
 
   button {
     font-size: 30px;
+    font-weight: 500;
     border: none;
     transition: 0.2s ease;
     background-color: transparent;
-    color: #d0d9d7;
+    color: $greyDark;
     margin-top: 15px;
   }
 
   button:hover {
-    color: #fa897b;
+    color: $primary;
   }
 }

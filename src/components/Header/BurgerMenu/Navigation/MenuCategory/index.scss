@@ -1,8 +1,8 @@
 @import 'src/Styles/stylesNeomorphism';
 
 .active div{
-  color: $hoverColor;
-  box-shadow: $boxShadowInside;
+  color: $primary;
+  box-shadow: $inner-shadow;
 }
 
 .menu-category {
@@ -11,8 +11,8 @@
   align-items: center;
   padding: 10px;
   transition: 0.3s ease;
-  background: $mainBgColor;
-  box-shadow: $boxShadowOutside;
+  background: $greyLight-1;
+  box-shadow: $shadow;
   border-radius: 15px;
   img {
     width: 30px;
@@ -21,6 +21,5 @@
 }
 
 .menu-category:hover{
-  box-shadow: $boxShadowInside;
-  color: $hoverColor;
+  color: $primary;
 }

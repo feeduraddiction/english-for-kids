@@ -7,6 +7,7 @@ import PlayModeNav from "@components/PlayModeNav";
 
 
 import './index.scss';
+import {pathToCategory} from "@assets/functions";
 
 
 export interface categoriesPropTypes {
@@ -26,9 +27,7 @@ const Pages = ({categories}: categoriesPropTypes) => {
     return <section className="category-section">
         {categories.map(category => (
             <Route
-                path={`/english-for-kids/${category.name
-                    .toLocaleLowerCase()
-                    .replace(/\s+/g, '')}`}
+                path={pathToCategory(category.name)}
                 key={category.name}
                 exact>
                 <h1>{category.name}</h1>

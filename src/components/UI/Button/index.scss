@@ -1,12 +1,12 @@
-@import '../../../Styles/stylesNeomorphism';
+@import 'src/Styles/stylesNeomorphism';
 
 .button {
   background: $mainBgColor;
   outline: none;
   border-color: transparent;
-  box-shadow: $boxShadowOutside;
-  border-radius: 20px;
-  padding: 12px 20px;
+  box-shadow: $shadow;
+  border-radius: 1rem;
+  padding: 12px 25px;
   cursor: pointer;
   color: $textColor;
   font-size: 20px;
@@ -20,8 +20,11 @@
 }
 
 .button:hover {
-  box-shadow: $boxShadowInside;
-  color: $hoverColor;
+  color: $primary;
   //border: 3px solid $mainBgColor;
+}
+
+.button:active {
+  box-shadow: $inner-shadow;
 }
 

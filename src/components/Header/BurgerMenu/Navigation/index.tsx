@@ -22,7 +22,7 @@ const Navigation = ({categories}: categoriesPropTypes) => {
             <Button onClick={closeBurgerHandler}>&#9587;</Button>
             <ul>
                 <li>
-                    <NavLink to='/english-for-kids' exact={true} onClick={closeBurgerHandler}>
+                    <NavLink to='/' exact={true} onClick={closeBurgerHandler}>
                         <MenuCategory
                             name={'Home'}
                             image={'img/home.png'}
@@ -33,7 +33,7 @@ const Navigation = ({categories}: categoriesPropTypes) => {
                     <li key={category.name}>
                         <NavLink
                             onClick={closeBurgerHandler}
-                            to={pathToCategory(category)}
+                            to={pathToCategory(category.name)}
                         >
                             <MenuCategory
                                 name={category.name}

@@ -1,6 +1,25 @@
-$mainBgColor: #ecf0f3;
-$hoverColor: #fa897b;
+$mainBgColor: #E4EBF5;
+$hoverColor: #8abdff;
 $textColor: #7d7d7d;
+
+$primary-light: #8abdff;
+$primary: #6d5dfc;
+$primary-dark: #5b0eeb;
+
+$white: #FFFFFF;
+$greyLight-1: #E4EBF5;
+$greyLight-2: #c8d0e7;
+$greyLight-3: #bec8e4;
+$greyDark: #9baacf;
+
+$cardShadow: .8rem .8rem 1.4rem $greyLight-2,
+-.2rem -.2rem 1.8rem $white;
+
+$shadow: .3rem .3rem .6rem $greyLight-2,
+-.2rem -.2rem .5rem $white;
+
+$inner-shadow: inset .2rem .2rem .5rem $greyLight-2,
+inset -.2rem -.2rem .5rem $white;
 
 $boxShadowOutside: 6px 6px 6px #cbced1, -6px -6px 6px white;
 $boxShadowInside: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;

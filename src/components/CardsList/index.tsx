@@ -27,6 +27,7 @@ export interface cardPropTypes {
 
 const CardsList = ({info}: cardPropTypes) => {
     const dispatch = useDispatch();
+
     const isGameStarted = useSelector(selectStartGame);
     const repeatCard = useSelector(selectRepeatCard);
     const isGameEnded = useSelector(selectEndgame);

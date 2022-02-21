@@ -3,8 +3,8 @@
 .category-card {
   border-radius: 25px;
   border-color: transparent;
-  box-shadow: $cardBoxShadow;
-  background-color: $mainBgColor;
+  box-shadow: $cardShadow;
+  background-color: $greyLight-1;
   padding-top: 15px;
   width: 100%;
   height: 100%;
@@ -13,8 +13,17 @@
 }
 
 .category-card:hover{
-  border: 3px solid $mainBgColor;
-  box-shadow: $boxShadowInside;
-  color: $hoverColor;
+  box-shadow: $inner-shadow;
+  color: $primary;
+}
+
+.playing-mode__category {
+  background-color: $primary;
+  color: $primary-light;
+}
+
+.playing-mode__category:hover{
+  box-shadow: none;
+  color: $greyLight-1;
 }
 
