@@ -1,9 +1,9 @@
 import './index.scss'
 
-const BackSide = (props:any) => {
+const BackSide = ({image, translation} : {image: string, translation: string}) => {
     return <div className="card-back-side">
-        <img src={require(`@assets/${props.imageToLearn}`)} alt="card image"/>
-        <p>{props.translation}</p>
+        <img src={require(`@assets/${image}`)} alt="card image"/>
+        <p>{translation}</p>
     </div>
 }
 

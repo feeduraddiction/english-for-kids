@@ -1,3 +1,7 @@
+import {useDispatch, useSelector} from "react-redux";
+import {selectStartGame, startGameAction} from "@store/Slices/StartGameSlice";
+import {refreshResultsAction} from "@store/Slices/resultsSlice";
+
 import './index.scss';
 
 export interface categoryPropsTypes {
@@ -6,8 +10,18 @@ export interface categoryPropsTypes {
 }
 
 const MenuCategory = ({name, image}: categoryPropsTypes) => {
-    return <div className="menu-category">
-        <img src={require(`@assets/${image}`)} alt=""/>
+    const dispatch = useDispatch();
+    const isGameStarted = useSelector(selectStartGame);
+
+    const resetStartGameHandler = () => {
+        if (isGameStarted) {
+            dispatch(refreshResultsAction());
+            dispatch(startGameAction(false));
+        }
+    }
+
+    return <div className="menu-category" onClick={resetStartGameHandler}>
+        <img src={require(`@assets/${image}`)} alt="category"/>
         <h5>{name}</h5>
     </div>
 }

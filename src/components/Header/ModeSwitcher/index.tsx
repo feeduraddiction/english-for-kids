@@ -11,23 +11,25 @@ const ModeSwitcher = () => {
 
     const switchModeHandler = () => {
         dispatch(switchModeAction());
+
         if (isGameStarted) {
             dispatch(refreshResultsAction());
             dispatch(startGameAction(false));
         }
-
     }
 
-    return <div
-        className={
-            isPlayingMode ? "mode-switcher" :
-                "mode-switcher active-switcher"
-        }
-    >
-        <h5>{isPlayingMode ? "Play" : "Train"}</h5>
-        <input type="checkbox" id="mode-switcher__input" onClick={switchModeHandler}></input>
-        <label htmlFor="mode-switcher__input"></label>
-    </div>
+    return (
+        <div className={isPlayingMode ? "mode-switcher" : "mode-switcher active-switcher"}>
+            <h5>{isPlayingMode ? "Play" : "Train"}</h5>
+            <input
+                checked={isPlayingMode ? true : false}
+                type="checkbox"
+                id="mode-switcher__input"
+                onChange={switchModeHandler}>
+            </input>
+            <label htmlFor="mode-switcher__input"></label>
+        </div>
+    )
 }
 
 export default ModeSwitcher;

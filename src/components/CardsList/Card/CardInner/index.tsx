@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import classNames from "classnames";
 
 import FrontSide from "./FrontSide";
@@ -8,15 +8,26 @@ import BackSide from "./BackSide";
 import {selectSwitchMode} from "@store/Slices/SwitchModeSlice";
 import {selectResults} from "@store/Slices/resultsSlice";
 
-import { playAudio } from "@assets/functions";
+import {playAudio} from "@assets/functions";
 
 import './index.scss';
 
-const CardInner = (props: any) => {
+import {categoryPropTypes} from "@components/CardsList/Card";
+import {tapCounterAction} from "@store/Slices/itemsCountersSlice";
+
+const CardInner = ({
+                       word,
+                       translation,
+                       image,
+                       audioSrc,
+                       onGetChosenCard
+                   }: categoryPropTypes) => {
     const isPlayingMode = useSelector(selectSwitchMode);
-    const currentResults = useSelector(selectResults).filter(element => element.answer === 'correct')
+    const currentResults = useSelector(selectResults)
+        .filter(element => element.result === 'correct')
         .map(element => element.item);
 
+    const dispatch = useDispatch();
     const [isRotated, setIsRotated] = useState(false);
 
     const flipHandler = () => {
@@ -29,18 +40,19 @@ const CardInner = (props: any) => {
 
     const cardInnerClasses = classNames({
         'card-inner': true,
-        'rotated' : isRotated,
-        'chosen' : currentResults.includes(props.audioSrc),
+        'rotated': isRotated,
+        'chosen': currentResults.includes(audioSrc),
         'playingmode': isPlayingMode,
     });
 
     const playAudioHandler = () => {
+        dispatch(tapCounterAction(word));
         if (!isPlayingMode) {
-            playAudio(props.audioSrc);
-            // new Audio(require(`@assets/${props.audioSrc}`)).play();
+            playAudio(audioSrc);
         } else {
-            props.onGetChosenCard(props.audioSrc);
+            onGetChosenCard(audioSrc);
         }
+
     }
 
     return (
@@ -48,17 +60,15 @@ const CardInner = (props: any) => {
             onClick={playAudioHandler}
             onMouseLeave={unflipHandler}
             className={cardInnerClasses}
-            id={props.id}
         >
             <FrontSide
-                imageToLearn={props.imageToLearn}
-                word={props.word}
+                image={image}
+                word={word}
                 onChangeSide={flipHandler}
-                audioSrc={props.audioSrc}
             />
             <BackSide
-                imageToLearn={props.imageToLearn}
-                translation={props.translation}
+                image={image}
+                translation={translation}
             />
         </div>
     )

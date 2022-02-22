@@ -10,12 +10,12 @@ import './index.scss';
 const EndGame = () => {
     const results = useSelector(selectResults);
 
-    const correctQuantity = results.map((result) => result.answer)
+    const incorrectQuantity = results.map((result) => result.result)
         .reduce((prev, cur) => {
             return cur === 'incorrect' ? prev + 1 : prev
         }, 0)
 
-    playAudio(correctQuantity ?
+    playAudio(incorrectQuantity ?
         'sounds/fail.mp3' :
         'sounds/won.mp3'
     );
@@ -23,7 +23,7 @@ const EndGame = () => {
     return <div className="endgame">
         <img
             src={require(`@assets/img/${
-                correctQuantity ?
+                incorrectQuantity ?
                     'sad_bunny.png' :
                     'happy_bunny.png'
             }`)}
@@ -31,8 +31,8 @@ const EndGame = () => {
         />
         <h1>
             {
-                correctQuantity ?
-                    ` Ooops! You failed ${correctQuantity} word(s) :( ` :
+                incorrectQuantity ?
+                    ` Ooops! You failed ${incorrectQuantity} word(s) :( ` :
                     'Good Job!'
             }
         </h1>

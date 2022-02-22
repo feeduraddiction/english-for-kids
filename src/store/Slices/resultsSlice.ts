@@ -4,9 +4,8 @@ import {RootState} from '../'
 
 interface resultsState {
     results: {
-        answer: string,
         item: string,
-        image?: string,
+        result: string,
     }[]
 }
 
@@ -18,12 +17,7 @@ const resultsSlice = createSlice({
     name: 'results',
     initialState,
     reducers: {
-        addResults(state,
-                   action: PayloadAction<{
-                       answer: string,
-                       image: string,
-                       item: string,
-                   }>) {
+        addResults(state,action: PayloadAction<{item: string, result: string}>) {
             state.results.push(action.payload);
         },
         refreshResults(state){

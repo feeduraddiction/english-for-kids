@@ -9,11 +9,10 @@ export interface categoryCardPropTypes {
 }
 
 
-
 const CategoryCard = ({name, image}: categoryCardPropTypes) => {
     const isPlayingMode = useSelector(selectSwitchMode);
 
-    return <div className={isPlayingMode ? "category-card" : " category-card playing-mode__category"}>
+    return <div className={isPlayingMode ? "category-card  playing-mode__category" : "category-card"}>
         <CategoryCardContent name={name} image={image}/>
     </div>
 }

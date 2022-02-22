@@ -5,6 +5,7 @@ import addResultsReducer from "./Slices/resultsSlice";
 import endGameReducer from "./Slices/endgameSlice";
 import addGeneralResultsReducer from "./Slices/generalResultsSlice";
 import activateMenuReducer from "./Slices/activateMenuSlice";
+import tapCounterReducer from "./Slices/itemsCountersSlice";
 
 
 const store = configureStore({
@@ -15,6 +16,7 @@ const store = configureStore({
         endGame: endGameReducer,
         addGeneralResults: addGeneralResultsReducer,
         activateMenu: activateMenuReducer,
+        tapCounter: tapCounterReducer,
     },
 });
 
