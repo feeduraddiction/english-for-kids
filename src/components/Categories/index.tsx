@@ -3,13 +3,9 @@ import CategoryCard from "@components/Categories/CategoryCard";
 
 import './index.scss';
 import {pathToCategory} from "@assets/functions";
+import {categoriesPropTypes} from "@assets/types";
 
-export interface categoriesPropTypes {
-    categories: {
-        name: string,
-        image: string,
-    }[]
-}
+
 
 const Categories = ({categories}: categoriesPropTypes) => {
 

@@ -7,3 +7,7 @@ export function pathToCategory(name: string) {
         .toLowerCase()
         .replace(/\s+/g, '')}`
 };
+
+export function percentOfCorrect(correctValue:number, incorrectValue:number) {
+    return 100 * (correctValue)/(incorrectValue + correctValue);
+}

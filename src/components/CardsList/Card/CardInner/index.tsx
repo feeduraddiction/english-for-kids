@@ -27,6 +27,8 @@ const CardInner = ({
         .filter(element => element.result === 'correct')
         .map(element => element.item);
 
+    const isDisabledCard = currentResults.includes(audioSrc);
+
     const dispatch = useDispatch();
     const [isRotated, setIsRotated] = useState(false);
 
@@ -41,23 +43,21 @@ const CardInner = ({
     const cardInnerClasses = classNames({
         'card-inner': true,
         'rotated': isRotated,
-        'chosen': currentResults.includes(audioSrc),
+        'chosen': isDisabledCard,
         'playingmode': isPlayingMode,
     });
 
-    const playAudioHandler = () => {
-        dispatch(tapCounterAction(word));
+    const tapHandler = () => {
         if (!isPlayingMode) {
             playAudio(audioSrc);
-        } else {
-            onGetChosenCard(audioSrc);
-        }
-
+            dispatch(tapCounterAction(word));
+        } else if (isDisabledCard) return;
+        else onGetChosenCard(audioSrc);
     }
 
     return (
         <div
-            onClick={playAudioHandler}
+            onClick={tapHandler}
             onMouseLeave={unflipHandler}
             className={cardInnerClasses}
         >

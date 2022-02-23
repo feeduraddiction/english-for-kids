@@ -42,6 +42,14 @@ const Navigation = ({categories}: categoriesPropTypes) => {
                         </NavLink>
                     </li>
                 ))}
+                <li>
+                    <NavLink to='/statistics'  onClick={closeBurgerHandler}>
+                        <MenuCategory
+                            name={'Statistics'}
+                            image={'img/statistics.png'}
+                        />
+                    </NavLink>
+                </li>
             </ul>
         </nav>
     )

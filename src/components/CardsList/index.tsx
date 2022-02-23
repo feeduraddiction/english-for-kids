@@ -12,15 +12,9 @@ import './index.scss';
 
 import {playAudio} from "@assets/functions";
 import {correctItemAction, incorrectItemAction} from "@store/Slices/itemsCountersSlice";
+import {cardPropTypes} from "@assets/types";
 
-export interface cardPropTypes {
-    info: {
-        word: string,
-        translation: string,
-        image: string,
-        audioSrc: string,
-    }[]
-}
+
 
 
 const CardsList = ({info}: cardPropTypes) => {

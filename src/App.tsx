@@ -15,6 +15,8 @@ import './App.css';
 import {refreshResultsAction} from "@store/Slices/resultsSlice";
 import {selectMenuActive} from "@store/Slices/activateMenuSlice";
 import {startGameAction} from "@store/Slices/StartGameSlice";
+import StatisticsTable from "@components/StatisticsTable";
+import StatisticsPage from "./pages/StatisticsPage";
 
 function App() {
     const isGameEnded = useSelector(selectEndgame);

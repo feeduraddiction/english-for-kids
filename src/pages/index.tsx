@@ -8,19 +8,9 @@ import PlayModeNav from "@components/PlayModeNav";
 
 import './index.scss';
 import {pathToCategory} from "@assets/functions";
+import {categoriesPropTypes} from "@assets/types";
+import StatisticsPage from "./StatisticsPage";
 
-
-export interface categoriesPropTypes {
-    categories: {
-        name: string,
-        info: {
-            word: string,
-            translation: string,
-            image: string,
-            audioSrc: string,
-        }[]
-    }[]
-}
 
 const Pages = ({categories}: categoriesPropTypes) => {
     const isPlayingMode = useSelector(selectSwitchMode);
@@ -35,6 +25,7 @@ const Pages = ({categories}: categoriesPropTypes) => {
                 {isPlayingMode && <PlayModeNav/>}
             </Route>
         ))}
+        <StatisticsPage/>
     </section>
 }
 

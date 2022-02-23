@@ -1,14 +1,13 @@
 import CardInner from "./CardInner";
 
 import './index.scss';
+import {infoType} from "@assets/types";
 
-export interface categoryPropTypes {
-    word: string,
-    translation: string,
-    image: string,
-    audioSrc: string,
-    onGetChosenCard: (card:string) => void,
+
+export interface categoryPropTypes extends infoType {
+    onGetChosenCard: (card:string) => void;
 }
+
 
 const Card = ({
                   word,

@@ -23,7 +23,7 @@ const resultsSlice = createSlice({
         refreshResults(state){
             state.results = [];
         },
-    }
+    },
 })
 
 export const addResultsAction = resultsSlice.actions.addResults;

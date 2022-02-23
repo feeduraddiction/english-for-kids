@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '../'
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {RootState} from '../'
 
 
 interface startGameState {
@@ -16,15 +16,16 @@ const startGameSlice = createSlice({
     name: 'startGame',
     initialState,
     reducers: {
-        startGame(state, action: PayloadAction<boolean>){
-            state.isGameStarted= action.payload;
+        startGame(state, action: PayloadAction<boolean>) {
+            state.isGameStarted = action.payload;
+            if (!action.payload) {
+                state.repeatCard = 0;
+            }
         },
         repeatCard(state) {
-            state.repeatCard = state.repeatCard + 1;
+            state.repeatCard++;
         }
-
-    },
-
+    }
 })
 
 export const startGameAction = startGameSlice.actions.startGame;

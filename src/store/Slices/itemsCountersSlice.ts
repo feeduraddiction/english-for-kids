@@ -1,29 +1,34 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {RootState} from '../';
 import categories from "@assets/Categories";
+import {percentOfCorrect} from "@assets/functions";
 
 
-interface tappedItemsState {
+export interface tappedItemsState {
     items: {
-        name: string,
+        category: string
+        word: string,
+        translation: string,
         taps: number,
         correct: number,
         incorrect: number,
+        percent: number
     }[]
 }
 
 const initialState: tappedItemsState = {
-    items: categories
-        .map(element => element.info)
-        .flat()
-        .map(element => {
+    items: categories.map(category =>
+        category.info.map(card => {
             return {
-                name: element.word,
+                word: card.word,
+                translation: card.translation,
+                category: category.name,
                 taps: 0,
                 correct: 0,
                 incorrect: 0,
+                percent: 0,
             }
-        }),
+        })).flat(),
 }
 
 
@@ -32,19 +37,27 @@ const itemsCountersSlice = createSlice({
     initialState,
     reducers: {
         addTappedItem(state, action: PayloadAction<string>) {
-           state.items.map((item: {name: string, taps: number}) => {
-               return item.name === action.payload ? item.taps++ : item;
-           })
+            const indexToUpdate = state.items.findIndex(item =>
+                item.word === action.payload
+            );
+            state.items[indexToUpdate].taps++;
+
         },
         addCorrectItem(state, action: PayloadAction<string>) {
-            state.items.map((item: {name: string, correct: number}) => {
-                return `sounds/${item.name}.mp3` === action.payload ? item.correct++ : item;
-            })
+            const indexToUpdate = state.items.findIndex(item =>
+                `sounds/${item.word}.mp3` === action.payload
+            );
+            state.items[indexToUpdate].correct++;
+            state.items[indexToUpdate].percent = percentOfCorrect(
+                state.items[indexToUpdate].correct,
+                state.items[indexToUpdate].incorrect
+            );
         },
         addIncorrectItem(state, action: PayloadAction<string>) {
-            state.items.map((item: {name: string, incorrect: number}) => {
-                return `sounds/${item.name}.mp3`  === action.payload ? item.incorrect++ : item;
-            })
+            const indexToUpdate = state.items.findIndex(item =>
+                `sounds/${item.word}.mp3` === action.payload
+            );
+            state.items[indexToUpdate].incorrect++;
         },
     }
 })
