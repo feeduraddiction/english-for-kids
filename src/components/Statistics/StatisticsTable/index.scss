@@ -1,0 +1,44 @@
+@import '../../../Styles/stylesNeomorphism';
+
+
+.statistics-table {
+
+  //border: 1px solid #eee;
+  table-layout: fixed;
+  min-width: 750px;
+  width: 100%;
+  margin-bottom: 20px;
+  border-collapse: collapse;
+   tr{
+     transition: all 0.4s ease;
+   }
+
+  th {
+    font-weight: bold;
+    padding: 5px;
+    background: $primary-light;
+    //border: 1px solid #dddddd;
+  }
+
+  td {
+    padding: 5px 10px;
+    //border: 1px solid #eee;
+    text-align: center;
+    word-wrap: break-word;
+  }
+
+  tbody {
+    tr:nth-child(odd) {
+      background: #fff;
+
+      tr:nth-child(even) {
+        background: $greyLight-1;
+      }
+    }
+    tr:hover{
+      background: $greyLight-2;
+    }
+  }
+}
+
+

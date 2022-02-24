@@ -15,7 +15,7 @@ import './App.css';
 import {refreshResultsAction} from "@store/Slices/resultsSlice";
 import {selectMenuActive} from "@store/Slices/activateMenuSlice";
 import {startGameAction} from "@store/Slices/StartGameSlice";
-import StatisticsTable from "@components/StatisticsTable";
+import StatisticsTable from "@components/Statistics/StatisticsTable";
 import StatisticsPage from "./pages/StatisticsPage";
 
 function App() {
@@ -30,13 +30,12 @@ function App() {
             dispatch(endgameAction(false));
             dispatch(startGameAction(false));
             dispatch(refreshResultsAction());  //end of the game
-        }, 5000);
+        }, 4000);
     }
 
     return (
         <div className="App">
             {isBurgerActive && <Backdrop/>}
-            <Header categories={categories}/>
             {isGameEnded ?
                 <>
                     <Redirect to='/'/>
@@ -44,6 +43,7 @@ function App() {
                 </>
                 :
                 <>
+                    <Header categories={categories}/>
                     <Categories categories={categories}/>
                     <Pages categories={categories}/>
                 </>

@@ -10,6 +10,7 @@ import './index.scss';
 import {pathToCategory} from "@assets/functions";
 import {categoriesPropTypes} from "@assets/types";
 import StatisticsPage from "./StatisticsPage";
+import DifficultWordsPage from "./DifficultWordsPage";
 
 
 const Pages = ({categories}: categoriesPropTypes) => {
@@ -26,6 +27,7 @@ const Pages = ({categories}: categoriesPropTypes) => {
             </Route>
         ))}
         <StatisticsPage/>
+        <DifficultWordsPage/>
     </section>
 }
 

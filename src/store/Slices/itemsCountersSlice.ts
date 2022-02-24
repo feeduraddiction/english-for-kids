@@ -59,12 +59,21 @@ const itemsCountersSlice = createSlice({
             );
             state.items[indexToUpdate].incorrect++;
         },
+        resetCounter(state) {
+            state.items.map(item => {
+                item.taps = 0;
+                item.correct = 0;
+                item.incorrect = 0;
+                item.percent = 0;
+            })
+        }
     }
 })
 
 export const tapCounterAction = itemsCountersSlice.actions.addTappedItem;
 export const correctItemAction = itemsCountersSlice.actions.addCorrectItem;
 export const incorrectItemAction = itemsCountersSlice.actions.addIncorrectItem;
+export const resetCounterAction = itemsCountersSlice.actions.resetCounter;
 
 export const selectTappedItems = (state: RootState) => state.tapCounter.items;
 

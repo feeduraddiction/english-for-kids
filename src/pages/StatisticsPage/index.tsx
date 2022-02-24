@@ -1,9 +1,9 @@
 import {Route} from "react-router-dom";
-import StatisticsTable from "@components/StatisticsTable";
+import Statistics from "@components/Statistics";
 
 const StatisticsPage = () => {
     return <Route path={'/statistics'} exact>
-        <StatisticsTable/>
+        <Statistics/>
     </Route>
 }
 

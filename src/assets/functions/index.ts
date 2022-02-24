@@ -9,5 +9,5 @@ export function pathToCategory(name: string) {
 };
 
 export function percentOfCorrect(correctValue:number, incorrectValue:number) {
-    return 100 * (correctValue)/(incorrectValue + correctValue);
+    return Math.floor(100 * (correctValue)/(incorrectValue + correctValue));
 }

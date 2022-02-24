@@ -4,7 +4,7 @@ import {categoriesPropTypes} from "../";
 
 import './index.scss';
 import {useDispatch} from "react-redux";
-import {activateMenuAction, selectMenuActive} from "@store/Slices/activateMenuSlice";
+import {activateMenuAction} from "@store/Slices/activateMenuSlice";
 import Button from "@UI/Button";
 
 const BurgerMenu = ({categories}: categoriesPropTypes) => {
