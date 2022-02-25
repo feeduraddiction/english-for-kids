@@ -1,5 +1,5 @@
-import React, {useMemo} from "react";
-import {useTable, Column} from "react-table";
+import React from "react";
+import {useTable, useSortBy, Column} from "react-table";
 import {useSelector} from "react-redux";
 import {selectTappedItems} from "@store/Slices/itemsCountersSlice";
 
@@ -15,38 +15,46 @@ const StatisticsTable = () => {
         incorrect: number,
         percent: number
     }
-    const dataToDisplay = useSelector(selectTappedItems);
-    const data = dataToDisplay;
+
+    const data = useSelector(selectTappedItems);
+    // const data = dataToDisplay;
 
     const columns: Column<TappedItemsState>[] = React.useMemo(
         () => [
             {
                 Header: 'Word',
                 accessor: 'word',
+                sortType: 'basic',
             },
             {
                 Header: 'Translation',
                 accessor: 'translation',
+                sortType: 'basic',
             },
             {
                 Header: 'Category',
                 accessor: 'category',
+                sortType: 'basic',
             },
             {
                 Header: 'Taps',
                 accessor: 'taps',
+                sortType: 'basic',
             },
             {
                 Header: 'Correct',
                 accessor: 'correct',
+                sortType: 'basic',
             },
             {
                 Header: 'Incorrect',
                 accessor: 'incorrect',
+                sortType: 'basic',
             },
             {
                 Header: '%',
                 accessor: 'percent',
+                sortType: 'basic',
             },
         ], []
     )

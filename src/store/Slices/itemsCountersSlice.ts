@@ -75,6 +75,6 @@ export const correctItemAction = itemsCountersSlice.actions.addCorrectItem;
 export const incorrectItemAction = itemsCountersSlice.actions.addIncorrectItem;
 export const resetCounterAction = itemsCountersSlice.actions.resetCounter;
 
-export const selectTappedItems = (state: RootState) => state.tapCounter.items;
+export const selectTappedItems = (state: RootState) => state.itemsCounter.items;
 
 export default itemsCountersSlice.reducer;
