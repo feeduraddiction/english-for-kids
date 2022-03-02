@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/english-for-kids/static/css/main.511723a9.css",
-    "main.js": "/english-for-kids/static/js/main.c26a273d.js",
+    "main.js": "/english-for-kids/static/js/main.4eeb04f3.js",
     "static/media/arrow_up.svg": "/english-for-kids/static/media/arrow_up.54f41ed97d0fab423caa.svg",
     "static/media/arrow_down.svg": "/english-for-kids/static/media/arrow_down.4e7f1442c48ca2a9fda0.svg",
     "static/media/won.mp3": "/english-for-kids/static/media/won.6dc2f4dee50f94326ae3.mp3",
@@ -111,10 +111,10 @@
     "index.html": "/english-for-kids/index.html",
     "static/media/arrow_repeat.svg": "/english-for-kids/static/media/arrow_repeat.222136e7f654f7a22080.svg",
     "main.511723a9.css.map": "/english-for-kids/static/css/main.511723a9.css.map",
-    "main.c26a273d.js.map": "/english-for-kids/static/js/main.c26a273d.js.map"
+    "main.4eeb04f3.js.map": "/english-for-kids/static/js/main.4eeb04f3.js.map"
   },
   "entrypoints": [
     "static/css/main.511723a9.css",
-    "static/js/main.c26a273d.js"
+    "static/js/main.4eeb04f3.js"
   ]
 }
