@@ -1,5 +1,6 @@
-import CardInner from "./CardInner";
+import React from 'react';
 
+import CardInner from "./CardInner";
 import './index.scss';
 import {infoType} from "@assets/types";
 
@@ -31,4 +32,4 @@ const Card = ({
 
 }
 
-export default Card;
+export default React.memo( Card);

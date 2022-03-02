@@ -15,9 +15,8 @@ import {correctItemAction, incorrectItemAction} from "@store/Slices/itemsCounter
 import {cardPropTypes} from "@assets/types";
 
 
-
-
 const CardsList = ({info}: cardPropTypes) => {
+    console.log('render');
     const dispatch = useDispatch();
 
     const isGameStarted = useSelector(selectStartGame);
@@ -27,22 +26,31 @@ const CardsList = ({info}: cardPropTypes) => {
     const audioToPlay = info.map((category) => category.audioSrc)
         .sort((a, b) => 0.5 - Math.random()); //a new random array
 
-     const [chosenCard, setChosenCard] = useState('');
+    const [chosenCard, setChosenCard] = useState('');
     const [audio, setAudio] = useState(audioToPlay);
+    const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+    const cardAudio = new Audio(require(`@assets/${audio[0]}`));
+    const falseAudio = new Audio(require(`@assets/sounds/failure.mp3`));
+
 
     const getChosenCard = (card: string) => {
         setChosenCard(card);
         if (audio.length === 1) {
             setAudio(audioToPlay);
-            dispatch(addResultsAction({item: card, result:'correct'}));
+            dispatch(addResultsAction({item: card, result: 'correct'}));
             dispatch(endgameAction(true));
             dispatch(correctItemAction(card));
         }
     }
-
     useEffect(() => {
         if (isGameStarted || repeatCard > 0) {
-            setTimeout(() => playAudio(audio[0]), 500);
+            if (!isAudioPlaying) {
+                setIsAudioPlaying(true);
+                setTimeout(() => {
+                    cardAudio.play();
+                }, 700)
+                cardAudio.addEventListener("ended", () => setIsAudioPlaying(false));
+            }
         }
     }, [isGameStarted, repeatCard, audio]); //play audio if game was started or repeat button pushed
 
@@ -50,14 +58,22 @@ const CardsList = ({info}: cardPropTypes) => {
     useEffect(() => {
         if (!!chosenCard && isGameStarted) {
             if (chosenCard === audio[0]) {
-                dispatch(addResultsAction({item: chosenCard, result:'correct'}));
+                playAudio('sounds/right.mp3')
+                dispatch(addResultsAction({item: chosenCard, result: 'correct'}));
                 dispatch(correctItemAction(chosenCard));
                 setAudio(audio.slice(1));
                 setChosenCard('');
             } else {
-                playAudio('sounds/failure.mp3');
+                if (!isAudioPlaying) {
+                    setIsAudioPlaying(true);
+                    falseAudio.play();
+                    falseAudio.addEventListener("ended", () => {
+                        cardAudio.play();
+                        setIsAudioPlaying(false);
+                    });
+                }
                 setChosenCard('');
-                dispatch(addResultsAction({item: chosenCard, result:'incorrect'}));
+                dispatch(addResultsAction({item: chosenCard, result: 'incorrect'}));
                 dispatch(incorrectItemAction(chosenCard));
             }
         }

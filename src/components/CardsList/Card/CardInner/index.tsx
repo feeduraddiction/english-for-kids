@@ -8,8 +8,6 @@ import BackSide from "./BackSide";
 import {selectSwitchMode} from "@store/Slices/SwitchModeSlice";
 import {selectResults} from "@store/Slices/resultsSlice";
 
-import {playAudio} from "@assets/functions";
-
 import './index.scss';
 
 import {categoryPropTypes} from "@components/CardsList/Card";
@@ -26,11 +24,15 @@ const CardInner = ({
     const currentResults = useSelector(selectResults)
         .filter(element => element.result === 'correct')
         .map(element => element.item);
-
     const isDisabledCard = currentResults.includes(audioSrc);
 
     const dispatch = useDispatch();
+    console.log('render '  + word);
+    const cardAudio = new Audio(require(`@assets/${audioSrc}`));
+
     const [isRotated, setIsRotated] = useState(false);
+    const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+
 
     const flipHandler = () => {
         setIsRotated(true);
@@ -47,9 +49,14 @@ const CardInner = ({
         'playingmode': isPlayingMode,
     });
 
+
     const tapHandler = () => {
         if (!isPlayingMode) {
-            playAudio(audioSrc);
+            if(!isAudioPlaying){
+               setIsAudioPlaying(true);
+                cardAudio.play();
+                cardAudio.addEventListener("ended", () => setIsAudioPlaying(false));
+            }
             dispatch(tapCounterAction(word));
         } else if (isDisabledCard) return;
         else onGetChosenCard(audioSrc);

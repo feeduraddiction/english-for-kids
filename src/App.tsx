@@ -17,6 +17,7 @@ import {selectMenuActive} from "@store/Slices/activateMenuSlice";
 import {startGameAction} from "@store/Slices/StartGameSlice";
 import StatisticsTable from "@components/Statistics/StatisticsTable";
 import StatisticsPage from "./pages/StatisticsPage";
+import Footer from "@components/Footer";
 
 function App() {
     const isGameEnded = useSelector(selectEndgame);
@@ -46,6 +47,7 @@ function App() {
                     <Header categories={categories}/>
                     <Categories categories={categories}/>
                     <Pages categories={categories}/>
+                    <Footer/>
                 </>
             }
         </div>
