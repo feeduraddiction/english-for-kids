@@ -25,7 +25,6 @@ function App() {
     const dispatch = useDispatch();
 
     if (isGameEnded) {
-
         setTimeout(() => {
             dispatch(endgameAction(false));
             dispatch(startGameAction(false));

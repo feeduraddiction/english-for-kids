@@ -45,7 +45,7 @@ const itemsCountersSlice = createSlice({
         },
         addCorrectItem(state, action: PayloadAction<string>) {
             const indexToUpdate = state.items.findIndex(item =>
-                `sounds/${item.word}.mp3` === action.payload
+                `sounds/${item.word.replaceAll(' ', '_')}.mp3` === action.payload
             );
             state.items[indexToUpdate].correct++;
             state.items[indexToUpdate].percent = percentOfCorrect(
@@ -55,16 +55,16 @@ const itemsCountersSlice = createSlice({
         },
         addIncorrectItem(state, action: PayloadAction<string>) {
             const indexToUpdate = state.items.findIndex(item =>
-                `sounds/${item.word}.mp3` === action.payload
+                `sounds/${item.word.replaceAll(' ', '_')}.mp3` === action.payload
             );
             state.items[indexToUpdate].incorrect++;
         },
         resetCounter(state) {
-            state.items.map(item => {
+            state.items.forEach(item => {
                 item.taps = 0;
+                item.percent = 0;
                 item.correct = 0;
                 item.incorrect = 0;
-                item.percent = 0;
             })
         }
     }
