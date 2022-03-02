@@ -16,7 +16,6 @@ import {cardPropTypes} from "@assets/types";
 
 
 const CardsList = ({info}: cardPropTypes) => {
-    console.log('render');
     const dispatch = useDispatch();
 
     const isGameStarted = useSelector(selectStartGame);

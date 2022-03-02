@@ -27,12 +27,10 @@ const CardInner = ({
     const isDisabledCard = currentResults.includes(audioSrc);
 
     const dispatch = useDispatch();
-    console.log('render '  + word);
     const cardAudio = new Audio(require(`@assets/${audioSrc}`));
 
     const [isRotated, setIsRotated] = useState(false);
     const [isAudioPlaying, setIsAudioPlaying] = useState(false);
-
 
     const flipHandler = () => {
         setIsRotated(true);
@@ -48,7 +46,6 @@ const CardInner = ({
         'chosen': isDisabledCard,
         'playingmode': isPlayingMode,
     });
-
 
     const tapHandler = () => {
         if (!isPlayingMode) {

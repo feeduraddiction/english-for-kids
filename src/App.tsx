@@ -11,13 +11,12 @@ import Backdrop from "@UI/Backdrop";
 
 import categories from '@assets/Categories';
 
-import './App.css';
 import {refreshResultsAction} from "@store/Slices/resultsSlice";
 import {selectMenuActive} from "@store/Slices/activateMenuSlice";
 import {startGameAction} from "@store/Slices/StartGameSlice";
-import StatisticsTable from "@components/Statistics/StatisticsTable";
-import StatisticsPage from "./pages/StatisticsPage";
 import Footer from "@components/Footer";
+
+import './App.css';
 
 function App() {
     const isGameEnded = useSelector(selectEndgame);

@@ -12,7 +12,7 @@ const FrontSide = ({image,word,onChangeSide}:frontSidePropTypes) => {
     const isPlayingMode = useSelector(selectSwitchMode);
 
     return <div className="card-front-side">
-        <img src={require(`@assets/${image}`)} alt="card image"/>
+        <img src={require(`@assets/${image}`)} alt="card image" />
         {!isPlayingMode && <p>{word}</p>}
         {!isPlayingMode && <button onClick={onChangeSide}>⟳</button>}
     </div>
